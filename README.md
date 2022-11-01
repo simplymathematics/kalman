@@ -8,5 +8,5 @@ image folder
 ## presentation.tex
 presentation tex file
 
-## presentation.pdf
+## slides.pdf
 rendered presentation
