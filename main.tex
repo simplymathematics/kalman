@@ -123,7 +123,7 @@ The actual IMU and GPS algorithms are outside the scope of this presentation.
 \begin{frame}{Task2 : Location}
 \begin{figure}
 
-    \subfloat[ With Outage RMS Error = 1.16 ]{\includegraphics[width=.5\textwidth]{images/outage_location.png}}
+    \subfloat[ With Outage RMS Error = 1.86 ]{\includegraphics[width=.5\textwidth]{images/outage_location.png}}
     \subfloat[ Without Outage RMS Error = 1.16]{\includegraphics[width=.5\textwidth]{images/no_outage_location.png}}
     \caption{Location over time for aided IMU. These are identical, but really shouldn't be. I really don't know.}
     
@@ -166,7 +166,12 @@ The actual IMU and GPS algorithms are outside the scope of this presentation.
 % error, with GNSS outage. What is the resulting rms error of the position
 % trajectory?
 \begin{frame}{Task4}
-    
+    \begin{figure}
+        \centering
+        \includegraphics[width=\textwidth]{images/error_growth.png}
+        \caption{Caption}
+        \label{fig:my_label}
+    \end{figure}
 \end{frame}
 
 % \begin{frame}
