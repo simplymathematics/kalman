@@ -16,7 +16,7 @@ function settings=get_settings()
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 settings.gnss_outage = 'on';
 settings.outagestart = 200; settings.outagestop = Inf;
-settings.non_holonomic = 'on';
+settings.non_holonomic = 'off';
 settings.speed_aiding = 'off';
 
 settings.init_heading = 320*pi/180;
@@ -45,7 +45,7 @@ settings.factp(1) = 10;                                 % Position [m]
 settings.factp(2) = 5;                                  % Velocity [m/s]
 settings.factp(3:5) = (pi/180*[1 1 20]');               % Attitude (roll,pitch,yaw) [rad]
 settings.factp(6) = 0.02;                               % Accelerometer biases [m/s^2]
-settings.factp(7) = (0.05*pi/180);                      % Gyro biases [rad/s]
+settings.factp(7) = (0.06*pi/180);                      % Gyro biases [rad/s]
 
 
 end
