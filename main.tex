@@ -22,6 +22,7 @@
 \usepackage{bbm}
 \usepackage{lmodern} %for institute name
 \usepackage{hyperref}
+\usepackage{subfig}
 \setcounter{MaxMatrixCols}{20}
 \newtheorem{thm}{Theorem}
 \newtheorem{prop}{Proposition}
@@ -30,8 +31,7 @@
 \newtheorem{lem}{Lemma}
 
 \everymath{\displaystyle}
-\title{Tikhonov Regularization and Adversarial Robustness}
-\author{Charlie}
+\title{Kalman Filters and Localization}
 
 % \institute{KTH Royal Institute of Technology}
 \date{\today}
@@ -120,12 +120,30 @@ The actual IMU and GPS algorithms are outside the scope of this presentation.
 % car position and the GPS position without outage. Experiment with varying
 % settings of filter parameters in get settings.m and try to improve the filter
 % performance during GPS outage.
-\begin{frame}{Task2}
+\begin{frame}{Task2 : Location}
 \begin{figure}
-    \includegraphics[width=.8\textwidth]{images/error_growth.png}
-    \caption{Error Growth over time for unaided IMU.}
-    \label{fig:my_label}
-    We can see that, as expected, the error rate grows over time without bound.
+
+    \subfloat[ With Outage RMS Error = 1.16 ]{\includegraphics[width=.5\textwidth]{images/outage_location.png}}
+    \subfloat[ Without Outage RMS Error = 1.16]{\includegraphics[width=.5\textwidth]{images/no_outage_location.png}}
+    \caption{Location over time for aided IMU. These are identical, but really shouldn't be. I really don't know.}
+    
+\end{figure}
+\begin{figure}
+    
+\end{figure}
+
+\end{frame}
+
+\begin{frame}{Task2 : Difference}
+\begin{figure}
+
+    \subfloat[ With Outage]{\includegraphics[width=.5\textwidth]{images/outage_difference.png}}
+    \subfloat[ Without Outage]{\includegraphics[width=.5\textwidth]{images/no_outage_difference.png}}
+    \caption{Error over time for aided IMU.}
+    
+\end{figure}
+\begin{figure}
+    
 \end{figure}
 
 \end{frame}
@@ -140,7 +158,7 @@ The actual IMU and GPS algorithms are outside the scope of this presentation.
 % sition error, with GNSS outage. You should see a substantial improvement.
 
 \begin{frame}{Task3}
-    
+    I apologize. I will finish tomorrow, 1 November.
 \end{frame}
 % TASK 4 The data included in the GNSSaidedINS.zip folder also include
 % measurements from a speedometer. Let the fusion filter also use these mea-
@@ -160,3 +178,4 @@ The actual IMU and GPS algorithms are outside the scope of this presentation.
 % \bibliography{mobility.bib}
 % \end{frame}
 \end{document}
+%  without outage: positionerr_RMS = 1.8606
