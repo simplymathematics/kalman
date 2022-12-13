@@ -69,7 +69,7 @@ The actual IMU and GPS algorithms are outside the scope of this presentation.
     and $w_k^*$ is an additive noise matrix with a specific covariance matrix, derived from the data. Each datapoint is then determined by another iterative function:
     $ u_{k+1} = f(u_k)$
     $$ u_k = u_{k-1} - \delta(\delta u_{k-2} + w_k^*) + w_k $$
-    Our gyroscope has a known error of .01 degrees latitude per second, skewing North due to the angular momentum of the earth. In meters near the equator, .01 degree of latitude is approximately equal to 111 meters \footnote{\href{https://www.usna.edu/Users/oceano/pguth/md_help/html/approx_equivalents.htm}{USNA}}.  
+    Our gyroscope has a known error of .01 degrees latitude per second, showing a cumulative growth in the next slide along the y and z directions.   
 \end{frame}
 
 % TASK 1 Use the functions errorgrowth.m and Nav eq.m to evaluate how
@@ -83,7 +83,7 @@ The actual IMU and GPS algorithms are outside the scope of this presentation.
 
 \begin{frame}{Task 1: Error Growth}
 \begin{figure}
-    \includegraphics[width=.8\textwidth]{images/error_growth.png}
+    \includegraphics[width=.6\textwidth]{images/error_growth.png}
     \caption{Error Growth over time for unaided IMU.}
     \label{fig:my_label}
     We can see that, as expected, the error rate grows over time without bound.
@@ -111,7 +111,7 @@ The actual IMU and GPS algorithms are outside the scope of this presentation.
     $$
     \delta a(t) = \delta u_0 + \int_0^t err_0 \cdot dt
     $$
-    where the $err_0$ is the bias due to the gyroscope's assumption that gravity is truly straight down relative to the angular momentum of the planet. Because it isn't and because the earth spins east, our gyroscope is biased North as per the right hand rule meaning that we would expect a larger error in Ume\aa~than Stockholm or Lund.
+    where the $err_0$ is the instantaneous error. There should be no signicant difference in bias between Lund and Stockholm.
 \end{frame}
 % TASK 2 Familiarize yourself with the Matlab code that implements the
 % GNSS-aided INS and execute the script main.m. Modify the code to simulate
@@ -124,7 +124,7 @@ The actual IMU and GPS algorithms are outside the scope of this presentation.
 \begin{figure}
 
     \subfloat[ With Outage RMS Error = 187.37]{\includegraphics[width=.5\textwidth]{images/outage.png}}
-    \subfloat[ Without Outage RMS Error = 1.86]{\includegraphics[width=.5\textwidth]{images/outage.png}}
+    \subfloat[ Without Outage RMS Error = 1.86]{\includegraphics[width=.5\textwidth]{images/no_outage.png}}
     \caption{Location over time for aided IMU.  The error is too small for these plots to be of much use, even when zoomed in.}
     
 \end{figure}
