@@ -91,7 +91,7 @@ The actual IMU and GPS algorithms are outside the scope of this presentation.
 \end{frame}
 
 \begin{frame}{Error Bias}
-    This error arises from the uncertainty of the accelerometer since the accelerataion, $a$ in the $x,z$ directions is initialized as:
+    This error arises from the uncertainty of the accelerometer since the acceleration, $a$ in the $x,z$ directions is initialized as:
     $$
     a_x = 0, a_z = -g
     $$
@@ -123,9 +123,9 @@ The actual IMU and GPS algorithms are outside the scope of this presentation.
 \begin{frame}{Task2 : Location}
 \begin{figure}
 
-    \subfloat[ With Outage RMS Error = 1.86 ]{\includegraphics[width=.5\textwidth]{images/outage_location.png}}
-    \subfloat[ Without Outage RMS Error = 1.16]{\includegraphics[width=.5\textwidth]{images/no_outage_location.png}}
-    \caption{Location over time for aided IMU. These are identical, but really shouldn't be. I really don't know.}
+    \subfloat[ With Outage RMS Error = 187.37]{\includegraphics[width=.5\textwidth]{images/outage.png}}
+    \subfloat[ Without Outage RMS Error = 1.86]{\includegraphics[width=.5\textwidth]{images/outage.png}}
+    \caption{Location over time for aided IMU.  The error is too small for these plots to be of much use, even when zoomed in.}
     
 \end{figure}
 \begin{figure}
@@ -137,9 +137,9 @@ The actual IMU and GPS algorithms are outside the scope of this presentation.
 \begin{frame}{Task2 : Difference}
 \begin{figure}
 
-    \subfloat[ With Outage]{\includegraphics[width=.5\textwidth]{images/outage_difference.png}}
-    \subfloat[ Without Outage]{\includegraphics[width=.5\textwidth]{images/no_outage_difference.png}}
-    \caption{Error over time for aided IMU.}
+    \subfloat[ With Outage RMS Error = 1.65]{\includegraphics[width=.5\textwidth]{images/outage_location.png}}
+    \subfloat[ Without Outage RMS Error = 1.56]{\includegraphics[width=.5\textwidth]{images/no_outage_location.png}}
+    \caption{Error over time for aided IMU. Using IMU + Accelerometer data.}
     
 \end{figure}
 \begin{figure}
@@ -157,30 +157,28 @@ The actual IMU and GPS algorithms are outside the scope of this presentation.
 % until you get a decent performance and plot the position estimates and po-
 % sition error, with GNSS outage. You should see a substantial improvement.
 
-\begin{frame}{Task3}
-    I apologize. I will finish tomorrow, 1 November.
+\begin{frame}{Task3 : Non- Holonomic}
+\begin{figure}
+
+    \subfloat[X, Y Error, RMS Error = 1.56]{\includegraphics[width=.5\textwidth]{images/nonholo_location.png}}
+    \subfloat[Trajectory ]{\includegraphics[width=.5\textwidth]{images/nonholo_trajectory.png}}
+    \caption{Error over time for aided IMU. Using IMU + Accelerometer data.}
+    
+\end{figure}
 \end{frame}
 % TASK 4 The data included in the GNSSaidedINS.zip folder also include
 % measurements from a speedometer. Let the fusion filter also use these mea-
 % surements, trim the filter, and then plot the position estimates and position
 % error, with GNSS outage. What is the resulting rms error of the position
 % trajectory?
-\begin{frame}{Task4}
+\begin{frame}{Task4 : Speed data}
     \begin{figure}
-        \centering
-        \includegraphics[width=\textwidth]{images/error_growth.png}
-        \caption{Caption}
-        \label{fig:my_label}
-    \end{figure}
+
+        \subfloat[X, Y Error, RMS Error = 3.9327]{\includegraphics[width=.5\textwidth]{images/speed_location.png}}
+        \subfloat[Trajectory ]{\includegraphics[width=.5\textwidth]{images/speed_trajectory.png}}
+        \caption{Error over time for aided IMU. Using IMU + Accelerometer data.}
+    
+\end{figure}
 \end{frame}
 
-% \begin{frame}
-% \frametitle{References}
-
-% \setbeamertemplate{bibliography item}[text]
-
-% \bibliographystyle{acm}
-% \bibliography{mobility.bib}
-% \end{frame}
 \end{document}
-%  without outage: positionerr_RMS = 1.8606
