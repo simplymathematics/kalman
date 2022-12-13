@@ -85,8 +85,12 @@ for k=2:N %N
         R = settings.sigma_gps^2*eye(3);
     elseif strcmp(settings.non_holonomic,'on') || strcmp(settings.speed_aiding,'on') % Task 3-4
         y = [in_data.GNSS.pos_ned(:,ctr_gnss_data);in_data.SPEEDOMETER.speed(ctr_speed_data);0;0];
-        H = [eye(3) zeros(3,3) zeros(3,9);zeros(3,3) get_Rb2p()*q2dcm(x_h(7:10))' zeros(3,9)];
-        R = diag([settings.sigma_gps^2*ones(1,3),settings.sigma_speed^2,settings.sigma_non_holonomic^2*ones(1,2)]);
+        my_vec = get_Rb2p()*q2dcm(x_h(7:10))'
+        H = [eye(3) zeros(3,3) zeros(3,9);zeros(3,3) my_vec zeros(3,9)];
+        gps = settings.sigma_gps^2*ones(1,3)
+        speed = settings.sigma_speed^2
+        non_holo = settings.sigma_non_holonomic^2*ones(1,2)
+        R = diag([gps,speed, non_holo]);
     end
 
     if strcmp(settings.gnss_outage,'off')
